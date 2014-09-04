@@ -11,7 +11,6 @@ def login(request):
 	form = LoginForm()
 	return render(request, 'login.html', {'form': form})
 
-
 def validar(request):
 	if request.method == "POST":
 		form = LoginForm(request.POST)
@@ -34,4 +33,10 @@ def validar(request):
 	else:
 		return HttpResponseRedirect('/login/')
 
+def logoff(request):
+	logout(request)
+	return HttpResponseRedirect('/')
 
+@login_required()
+def dashboard(request):
+	return render(request, 'dashboard.html')
