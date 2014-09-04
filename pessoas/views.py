@@ -13,7 +13,7 @@ def login(request):
 
 
 def validar(request):
-	if request.method = "POST":
+	if request.method == "POST":
 		form = LoginForm(request.POST)
 
 		if form.is_valid():
@@ -24,7 +24,7 @@ def validar(request):
 				if pessoa.is_active:
 					meu_login(request, pessoa)
 					return HttpResponseRedirect('/dashboard/')
-					
+
 				else:
 					return render(request, 'login.html', {'form': form})
 			else:
