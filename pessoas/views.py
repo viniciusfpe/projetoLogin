@@ -5,9 +5,11 @@ from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 from pessoas.models import Pessoa
 from django.core.mail import send_mail
+from django.utils.translation import ugettext_lazy as _
 
 def index(request):
-	return render(request, 'index.html')
+	recado = _('Ola, Voce esta no site certo!')
+	return render(request, 'index.html', {'recado': recado})
 
 def login(request):
 	form = LoginForm()

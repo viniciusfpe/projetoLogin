@@ -10,4 +10,6 @@ urlpatterns = patterns('pessoas.views',
    url(r'^cadastro/$', 'cadastro'),
    url(r'^cadastro_validar/$', 'cadastro_validar'),
    url(r'^token/(?P<numero>\d+)/$', 'token'),
+
+   url(r'^i18n/', include('django.conf.urls.i18n')),
 )
